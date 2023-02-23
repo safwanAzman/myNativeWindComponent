@@ -53,6 +53,7 @@ export default function App() {
           <AuthContext.Provider value={authContext}>
             <NavigationContainer theme={CustomTheme} >
               { auth.userToken ?  <HomeStackStackNavigator /> : <AuthStackNavigator />}
+              {/* <HomeStackStackNavigator /> */}
             </NavigationContainer>
           </AuthContext.Provider>
           { auth.isLoading ? <Loading /> : null }

@@ -8,7 +8,8 @@ export const theme = {
 
         //general colors
         inactiveColor:"#B4B4B4",
-        activeTintColor:"#FDBF1F",
+        activeTintColor:"#317773",
+        botomTab:'#FFFFF',
         black:'#000000',
         lightGray:'#FBFBFB',
         gray:'#E3E3E3',

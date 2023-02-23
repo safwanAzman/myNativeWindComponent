@@ -28,7 +28,7 @@ export const TabBottomStack = () => (
         options={{
             headerShown: false,
             tabBarIcon: ({focused}) => (
-                <FontAwesome  name="home" size={8} color={focused ? theme.colors.activeTintColor: theme.colors.inactiveColor} />
+                <FontAwesome  name="home" size={30} color={focused ? theme.colors.activeTintColor: theme.colors.inactiveColor} />
             ),
             tabBarLabel: "Home",
         }}
@@ -40,7 +40,7 @@ export const TabBottomStack = () => (
         options={{
             headerShown: false,
             tabBarIcon: ({focused}) => (
-                <Ionicons name="md-receipt-sharp" size={7} color={focused ? theme.colors.activeTintColor: theme.colors.inactiveColor} />
+                <Ionicons name="md-receipt-sharp" size={30} color={focused ? theme.colors.activeTintColor: theme.colors.inactiveColor} />
             ),
             tabBarLabel: "History",
         }}
@@ -52,7 +52,7 @@ export const TabBottomStack = () => (
         options={{
             headerShown: false,
             tabBarIcon: ({focused}) => (
-                <MaterialCommunityIcons name="shopping" size={7} color={focused ? theme.colors.activeTintColor: theme.colors.inactiveColor} />
+                <MaterialCommunityIcons name="shopping" size={30} color={focused ? theme.colors.activeTintColor: theme.colors.inactiveColor} />
             ),
             tabBarLabel: "Product",
         }}
@@ -64,7 +64,7 @@ export const TabBottomStack = () => (
         options={{
             headerShown: false,
             tabBarIcon: ({focused}) => (
-                <FontAwesome name="user-circle" size={7} color={focused ? theme.colors.activeTintColor: theme.colors.inactiveColor} />
+                <FontAwesome name="user-circle" size={30} color={focused ? theme.colors.activeTintColor: theme.colors.inactiveColor} />
             ),
             tabBarLabel: "Profile",
         }}
@@ -75,7 +75,7 @@ export const TabBottomStack = () => (
 
 const styles = StyleSheet.create({
     tabContainer:{
-        // backgroundColor:theme.colors.lightGray,
+        backgroundColor:theme.colors.botomTab,
         padding:8,
         height:70,
         paddingBottom:10

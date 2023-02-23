@@ -5,6 +5,7 @@ import * as Yup from "yup";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 import { Video } from "expo-av";
 import { theme } from '../../theme';
+import * as SecureStore from 'expo-secure-store';
 
 import Vid from '../../../assets/vid.mp4';
 
@@ -45,10 +46,10 @@ export default function LoginScreen({navigation}) {
                 <Formik
                     validationSchema={Schema}
                     initialValues={{ 
-                        // email: 'admin@csc.net.my' ,
-                        // password:'Csc@1234' 
-                        email: '' ,
-                        password:'' 
+                        email: 'admin@csc.net.my' ,
+                        password:'Csc@1234' 
+                        // email: '' ,
+                        // password:'' 
                     }}
                     onSubmit={(values,actions)=>{
                         login(values,actions);
