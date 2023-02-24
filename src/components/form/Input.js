@@ -19,7 +19,8 @@ export default  function Input({errorMessage ,placeholder,onChangeText,value,edi
             </Text>
             <TextInput
                 className={`
-                p-4 border rounded-lg 
+                border rounded-lg 
+                ${Platform.OS === "android" ? 'p-2' : 'p-4'}
                 ${errorMessage ?'border-red-500 ' :'border-gray-300'}
                 ${rightIcon ?'pr-12 ' :'px-4'}
                 ${leftIcon ?'pl-12 ' :'px-4'}
@@ -34,12 +35,20 @@ export default  function Input({errorMessage ,placeholder,onChangeText,value,edi
                 renderRightAccessory={renderRightAccessory}
             />
             {rightIcon ?
-                <View className="absolute right-0 px-4 top-7">
+                <View className={`
+                absolute right-0 px-4 
+                `}
+                style={{ top:Platform.OS === "android" ? 30 : 28}}
+                >
                     <MaterialIcons name={rightIcon} size={24} color="black" style={{ marginLeft: 8 }} />
                 </View>
             :null}
             {leftIcon ?
-                <View className="absolute left-0 px-2 top-7">
+                <View className={`
+                    absolute left-0 px-2 
+                    `}
+                    style={{ top:Platform.OS === "android" ? 30 : 28}}
+                    >
                     <MaterialIcons name={leftIcon} size={24} color="black" style={{ marginLeft: 8 }} />
                 </View>
             :null}
