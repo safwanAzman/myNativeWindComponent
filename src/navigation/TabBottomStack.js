@@ -75,7 +75,7 @@ export const TabBottomStack = () => (
 
 const styles = StyleSheet.create({
     tabContainer:{
-        backgroundColor:theme.colors.botomTab,
+        backgroundColor: Platform.OS === "android" ? theme.colors.default : theme.colors.botomTab,
         padding:8,
         height:70,
         paddingBottom:10
