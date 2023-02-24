@@ -5,11 +5,14 @@ import { theme } from '../../theme';
 export default function Btnsubmit({title,onPress}) {
     return (
         <Pressable 
-            className="py-4 flex items-center justify-center rounded-lg"
+            className={`
+            ${Platform.OS === "android" ? 'py-3' : 'py-4'}
+            flex items-center justify-center rounded-lg
+            `}
             style={{backgroundColor:theme.colors.main}}
             onPress={onPress}
             >
-            <Text className="text-white font-semibold">{title}</Text>
+            <Text className="font-semibold text-white">{title}</Text>
         </Pressable>
     )
 }
