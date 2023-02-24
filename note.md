@@ -16,6 +16,8 @@ yarn add react-native-keyboard-aware-scroll-view
 https://hossein-zare.github.io/react-native-dropdown-picker-website/docs/usage#onchangevalue
 yarn add react-native-dropdown-picker 
 
+npx expo install expo-checkbox
+
 yarn add @react-navigation/native-stack
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 const AuthStack = createNativeStackNavigator();
