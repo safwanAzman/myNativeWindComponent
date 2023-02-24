@@ -45,33 +45,37 @@ export default function Select({ errorMessage, placeholder, label, options,zInde
 
 {/* 
 ## EXAMPLE CALL SELECT COMPONENT
-    <Select 
-        label=""
-        placeholder="select" 
-        errorMessage="test"
-        options={[
-            { label: 'Option 1', value: 'option1' },
-            { label: 'Option 2', value: 'option2' },
-            { label: 'Option 3', value: 'option3' },
-        ]} 
-        onSelectItem={(item) => {
-            console.log(item);
-        }}
-        onChangeValue={(value) => console.log(value)}
-        zIndex={3000}
-        zIndexInverse={1000}
-    />
-    <Select 
-        label=""
-        placeholder="select" 
-        errorMessage="test"
-        options={[
-            { label: 'Option 1', value: '2' },
-            { label: 'Option 2', value: '3' },
-            { label: 'Option 3', value: '4' },
-        ]} 
-        onChangeValue={(value) => console.log(value)}
-        zIndex={2000}
-        zIndexInverse={2000}
-    /> 
+    <>
+        <Select 
+            label=""
+            placeholder="select" 
+            errorMessage="test"
+            options={[
+                { label: 'Option 1', value: 'option1' },
+                { label: 'Option 2', value: 'option2' },
+                { label: 'Option 3', value: 'option3' },
+            ]} 
+            onSelectItem={(item) => {
+                console.log(item);
+            }}
+            onChangeValue={(value) => console.log(value)}
+            zIndex={3000}
+            zIndexInverse={1000}
+        />
+    </>
+    <>
+        <Select 
+            label=""
+            placeholder="select" 
+            errorMessage="test"
+            options={[
+                { label: 'Option 1', value: '2' },
+                { label: 'Option 2', value: '3' },
+                { label: 'Option 3', value: '4' },
+            ]} 
+            onChangeValue={(value) => console.log(value)}
+            zIndex={2000}
+            zIndexInverse={2000}
+        /> 
+    </>
 */}
