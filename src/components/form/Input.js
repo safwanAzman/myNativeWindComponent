@@ -1,8 +1,8 @@
 import React from 'react';
-import {View,Text,TextInput} from 'react-native';
+import {View,Text,TextInput,Pressable} from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
 
-export default  function Input({errorMessage ,placeholder,onChangeText,value,editable,keyboardType,label,secureTextEntry,leftIcon, rightIcon}) {
+export default  function Input({errorMessage ,placeholder,onChangeText,value,editable,keyboardType,label,secureTextEntry,leftIcon, rightIcon,onPress}) {
     const renderLeftAccessory = () => {
         if (!leftIcon) return null;
         return <MaterialIcons name={leftIcon} size={24} color="black" style={{ marginRight: 8 }} />;
@@ -35,13 +35,15 @@ export default  function Input({errorMessage ,placeholder,onChangeText,value,edi
                 renderRightAccessory={renderRightAccessory}
             />
             {rightIcon ?
-                <View className={`
+                <Pressable 
+                onPress={onPress}
+                className={`
                 absolute right-0 px-4 
                 `}
                 style={{ top:Platform.OS === "android" ? 30 : 28}}
                 >
                     <MaterialIcons name={rightIcon} size={24} color="black" style={{ marginLeft: 8 }} />
-                </View>
+                </Pressable>
             :null}
             {leftIcon ?
                 <View className={`
