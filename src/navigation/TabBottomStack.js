@@ -3,9 +3,7 @@ import { StyleSheet, Pressable, View } from 'react-native';
 import {FontAwesome,MaterialCommunityIcons,Ionicons,} from '@expo/vector-icons';
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import HomeScreen from "../screens/home/HomeScreen";
-import HistoryScreen from "../screens/history/HistoryScreen";
-import ProductScreen from "../screens/product/ProductScreen";
-import ProfileScreen from "../screens/profile/ProfileScreen";
+import TestScreen from "../screens/test/TestScreen";
 import { theme } from "../theme/index";
 
 // Route for bottom navigator
@@ -35,38 +33,38 @@ export const TabBottomStack = () => (
     />
 
     <BottomNavigator.Screen 
-        name="Histrory" 
-        component={HistoryScreen} 
+        name="test1" 
+        component={TestScreen} 
         options={{
             headerShown: false,
             tabBarIcon: ({focused}) => (
                 <Ionicons name="md-receipt-sharp" size={30} color={focused ? theme.colors.activeTintColor: theme.colors.inactiveColor} />
             ),
-            tabBarLabel: "History",
+            tabBarLabel: "test1",
         }}
     />
 
     <BottomNavigator.Screen 
-        name="Product" 
-        component={ProductScreen} 
+        name="test2" 
+        component={TestScreen} 
         options={{
             headerShown: false,
             tabBarIcon: ({focused}) => (
                 <MaterialCommunityIcons name="shopping" size={30} color={focused ? theme.colors.activeTintColor: theme.colors.inactiveColor} />
             ),
-            tabBarLabel: "Product",
+            tabBarLabel: "test2",
         }}
     />
 
     <BottomNavigator.Screen 
-        name="Profile" 
-        component={ProfileScreen} 
+        name="test3" 
+        component={TestScreen} 
         options={{
             headerShown: false,
             tabBarIcon: ({focused}) => (
                 <FontAwesome name="user-circle" size={30} color={focused ? theme.colors.activeTintColor: theme.colors.inactiveColor} />
             ),
-            tabBarLabel: "Profile",
+            tabBarLabel: "test3",
         }}
     />
 
