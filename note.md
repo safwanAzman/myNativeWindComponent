@@ -17,6 +17,10 @@ https://hossein-zare.github.io/react-native-dropdown-picker-website/docs/usage#o
 yarn add react-native-dropdown-picker 
 
 npx expo install expo-checkbox
+yarn add moment  
+yarn add react-native-calendar-picker
+yarn add react-native-raw-bottom-sheet
+
 
 yarn add @react-navigation/native-stack
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
