@@ -74,3 +74,42 @@ return (
 
 
 export default Calendar;
+
+
+{/* 
+    ## EXAMPLE CALL CALENDAR COMPONENT
+    const refRBSheet = useRef();
+    const [startDate, setStartDate] = useState(null);
+    const [endDate, setEndDate] = useState(null);
+    <>
+        <View 
+            className="mb-0">
+            <Input
+                label="Start Date - End Date"
+                value={`${startDate ? moment(startDate).format('DD/MM/YYYY') : 'DD/MM/YYYY'} - ${endDate ? moment(endDate).format('DD/MM/YYYY')  : 'DD/MM/YYYY'}`}
+                editable={false}
+                rightIcon="calendar-today"
+                onPress={() => refRBSheet.current.open()}
+                errorMessage={errors.startDate && touched.startDate ? errors.startDate : null}
+            />
+        </View>
+        <Calendar 
+            allowRangeSelection={true}
+            openCalendar={refRBSheet}
+            onChange={(start, end) => {
+                setStartDate(start);
+                setEndDate(end);
+                setFieldValue('startDate', start ? moment(start).format('YYYY/MM/DD') : '');
+                setFieldValue('endDate', end ? moment(end).format('YYYY/MM/DD') : '');
+            }} 
+            startDate={startDate} 
+            endDate={endDate} 
+            resetDate={() => {
+                setStartDate(null),
+                setEndDate(null)
+                setFieldValue('startDate', null);
+                setFieldValue('endDate', null);
+            }}
+        />
+    </> 
+*/}
