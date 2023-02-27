@@ -18,7 +18,7 @@ export default function HomeScreen({navigation}) {
     const refRBSheet = useRef();
     const [startDate, setStartDate] = useState(null);
     const [endDate, setEndDate] = useState(null);
-    const [selectData, setSelectData] = useState(null);
+    const [selectData, setSelectData] = useState('option2');
     
 
     const Schema = Yup.object().shape({
@@ -33,20 +33,19 @@ export default function HomeScreen({navigation}) {
                 initialValues={{ 
                     startDate:'',
                     endDate:'',
-                    selectData:'option2'
+                    selectData:selectData
                 }}
                 onSubmit={(values,actions)=>{
-                    console.log(values);
+                    console.log(selectData);
                 }}
             >
             {({ handleChange,handleSubmit,values,errors,touched,setFieldValue}) => (
             <>
-                <View className="my-4">
+                <View className="my-3">
                     <>
                         <View 
                             className="mb-0">
                             <Input
-                                label="Start Date - End Date"
                                 value={`${startDate ? moment(startDate).format('DD/MM/YYYY') : 'DD/MM/YYYY'} - ${endDate ? moment(endDate).format('DD/MM/YYYY')  : 'DD/MM/YYYY'}`}
                                 editable={false}
                                 rightIcon="calendar-today"
@@ -81,17 +80,26 @@ export default function HomeScreen({navigation}) {
                         placeholder="select" 
                         errorMessage={errors.selectData && touched.selectData ? errors.selectData : null}
                         options={[
-                            { label: 'Option 1', value: 'option1' },
-                            { label: 'Option 2', value: 'option2' },
-                            { label: 'Option 3', value: 'option3' },
+                            { id: 1 ,label: 'Option 1', value: 'option1' },
+                            { id: 2 ,label: 'Option 2', value: 'option2' },
+                            { id: 3 ,label: 'Option 3', value: 'option3' },
                         ]} 
                         passSetValue={selectData}
                         onChangeValue={(value) => setFieldValue('selectData', value)}
                         zIndex={3000}
-
                         zIndexInverse={1000}
                     />
                 </>
+
+                <View className="mt-4">
+                    <Input
+                        value={'test'}
+                        editable={false}
+                        secureTextEntry={true}
+                        showPass={true}
+                        errorMessage={''}
+                    />
+                </View>
                 <View className="mt-6">
                     <Btnsubmit
                         title="Submit"

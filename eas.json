@@ -8,10 +8,6 @@
       "distribution": "internal",
       "ios": {
         "resourceClass": "m1-medium"
-      },
-      "android":{
-        "buildType":"apk",
-        "gradleCommand": ":app:assembleRelease"
       }
     },
     "preview": {

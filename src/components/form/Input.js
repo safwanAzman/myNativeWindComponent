@@ -1,20 +1,17 @@
-import React from 'react';
+import React,{useState} from 'react';
 import {View,Text,TextInput,Pressable} from 'react-native';
-import { MaterialIcons } from '@expo/vector-icons';
+import { MaterialIcons ,FontAwesome,Ionicons} from '@expo/vector-icons';
+import { theme } from '../../theme';
 
-export default  function Input({errorMessage ,placeholder,onChangeText,value,editable,keyboardType,label,secureTextEntry,leftIcon, rightIcon,onPress}) {
-    const renderLeftAccessory = () => {
-        if (!leftIcon) return null;
-        return <MaterialIcons name={leftIcon} size={24} color="black" style={{ marginRight: 8 }} />;
-    };
+export default  function Input({errorMessage ,placeholder,onChangeText,value,editable,keyboardType,label,secureTextEntry,leftIcon, rightIcon,onPress , showPass}) {
+    const [showPassword, setShowPassword] = useState(true);
 
-    const renderRightAccessory = () => {
-        if (!rightIcon) return null;
-        return <MaterialIcons name={rightIcon} size={24} color="black" style={{ marginLeft: 8 }} />;
-    };
+        const toggleShowPassword = () => {
+            setShowPassword(!showPassword);
+        };
     return (
         <View className="relative">
-            <Text className={`text-sm font-semibold   pl-1 ${errorMessage ?'text-red-500 ' :'text-gray-900'}`}>
+            <Text className={`text-sm font-semibold pl-1 ${errorMessage ?'text-red-500 ' :'text-gray-900'}`}>
                 {label}
             </Text>
             <TextInput
@@ -30,28 +27,38 @@ export default  function Input({errorMessage ,placeholder,onChangeText,value,edi
                 value={value}
                 editable={editable}
                 keyboardType={keyboardType}
-                secureTextEntry={secureTextEntry}
-                renderLeftAccessory={renderLeftAccessory}
-                renderRightAccessory={renderRightAccessory}
+                secureTextEntry={showPassword ? secureTextEntry : false}
+                
             />
+            {showPass ? 
+                <Pressable 
+                onPress={toggleShowPassword}
+                className={`
+                absolute right-0 px-4 
+                `}
+                style={{ top:Platform.OS === "android" ? 30 : label ? 33 : 28}}
+                >
+                    <Ionicons name={showPassword ? 'eye-off' : 'eye'} size={24} color={theme.colors.darkGray}  style={{ marginLeft: 8 }}  />
+                </Pressable>
+            :null}
             {rightIcon ?
                 <Pressable 
                 onPress={onPress}
                 className={`
                 absolute right-0 px-4 
                 `}
-                style={{ top:Platform.OS === "android" ? 30 : 28}}
+                style={{ top:Platform.OS === "android" ? 30 :  label ? 33 : 28}}
                 >
-                    <MaterialIcons name={rightIcon} size={24} color="black" style={{ marginLeft: 8 }} />
+                    <MaterialIcons name={rightIcon} size={24} color={theme.colors.darkGray} style={{ marginLeft: 8 }} />
                 </Pressable>
             :null}
             {leftIcon ?
                 <View className={`
                     absolute left-0 px-2 
                     `}
-                    style={{ top:Platform.OS === "android" ? 30 : 28}}
+                    style={{ top:Platform.OS === "android" ? 30 :  label ? 33 : 28}}
                     >
-                    <MaterialIcons name={leftIcon} size={24} color="black" style={{ marginLeft: 8 }} />
+                    <MaterialIcons name={leftIcon} size={24} color={theme.colors.darkGray} style={{ marginLeft: 8 }} />
                 </View>
             :null}
             <Text className={`text-sm font-semibold pl-1 text-red-500 ${errorMessage ?'blokck' :'hidden'}`}>
@@ -88,4 +95,13 @@ export default  function Input({errorMessage ,placeholder,onChangeText,value,edi
             errorMessage="Error Message"
         />
     </View> 
+    <View className="mb-4">
+        <Input
+            label="password"
+            value={'test'}
+            secureTextEntry={true}
+            showPass={true}
+            errorMessage={''}
+        />
+    </View>
 */}

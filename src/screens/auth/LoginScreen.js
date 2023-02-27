@@ -90,12 +90,13 @@ export default function LoginScreen({navigation}) {
                                     onChangeText={handleChange("password")}
                                     value={values.password}
                                     secureTextEntry={true}
+                                    showPass={true}
                                     errorMessage={errors.password && touched.password ? errors.password : null}
                                 />
                             </View>
-                            <View className="py-2 flex-row flex justify-end px-2">
+                            <View className="flex flex-row justify-end px-2 py-2">
                                 <Pressable onPress={() => navigation.navigate('ForgotPassword')}>
-                                    <Text className="font-semibold text-sm" style={{color:theme.colors.main}}>
+                                    <Text className="text-sm font-semibold" style={{color:theme.colors.main}}>
                                         Forgot your password ?
                                     </Text>
                                 </Pressable>
@@ -112,10 +113,10 @@ export default function LoginScreen({navigation}) {
                     )}
                 </Formik>
             </KeyboardAwareScrollView>
-            <View className="m-auto py-4 flex flex-row space-x-1 items-center bg-gray-100 w-full justify-center">
+            <View className="flex flex-row items-center justify-center w-full py-4 m-auto space-x-1 bg-gray-100">
                 <Text className="text-sm">Don't have an Account</Text>
                     <Pressable onPress={() => navigation.navigate('Register')}>
-                    <Text className="font-semibold text-sm" style={{color:theme.colors.main}}>
+                    <Text className="text-sm font-semibold" style={{color:theme.colors.main}}>
                         Register
                     </Text>
                 </Pressable>
