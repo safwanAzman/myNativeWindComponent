@@ -9,6 +9,7 @@ import MyCheckbox from '../../components/form/MyCheckbox';
 import moment from 'moment';
 import Btnsubmit from '../../components/btn/BtnSubmit';
 import Calendar from '../../components/calendar/Calendar';
+import DropDownPicker from 'react-native-dropdown-picker';
 
 
 
@@ -17,18 +18,22 @@ export default function HomeScreen({navigation}) {
     const refRBSheet = useRef();
     const [startDate, setStartDate] = useState(null);
     const [endDate, setEndDate] = useState(null);
+    const [selectData, setSelectData] = useState(null);
+    
 
     const Schema = Yup.object().shape({
         startDate: Yup.string().required("Please Choose Date"),
+        selectData: Yup.string().required("Please Choose Date"),
     });
 
     return (
         <Container>
             <Formik
-                validationSchema={Schema}
+                // validationSchema={Schema}
                 initialValues={{ 
                     startDate:'',
-                    endDate:''
+                    endDate:'',
+                    selectData:'option2'
                 }}
                 onSubmit={(values,actions)=>{
                     console.log(values);
@@ -67,9 +72,27 @@ export default function HomeScreen({navigation}) {
                                 setFieldValue('endDate', null);
                             }}
                         />
+
                     </>
                 </View>
-                <View className="">
+                <>
+                    <Select 
+                        label=""
+                        placeholder="select" 
+                        errorMessage={errors.selectData && touched.selectData ? errors.selectData : null}
+                        options={[
+                            { label: 'Option 1', value: 'option1' },
+                            { label: 'Option 2', value: 'option2' },
+                            { label: 'Option 3', value: 'option3' },
+                        ]} 
+                        passSetValue={selectData}
+                        onChangeValue={(value) => setFieldValue('selectData', value)}
+                        zIndex={3000}
+
+                        zIndexInverse={1000}
+                    />
+                </>
+                <View className="mt-6">
                     <Btnsubmit
                         title="Submit"
                         onPress={handleSubmit}
