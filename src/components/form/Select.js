@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import {Text} from 'react-native';
 import DropDownPicker from 'react-native-dropdown-picker';
 
-export default function Select({ errorMessage, placeholder, label, options,zIndex,zIndexInverse,onChangeValue,onSelectItem}) {
+export default function Select({ errorMessage, placeholder, label, options,zIndex,zIndexInverse,onChangeValue,onSelectItem ,passSetValue}) {
     const [open, setOpen] = useState(false);
-    const [value, setValue] = useState(null);
+    const [value, setValue] = useState(passSetValue);
     const [items, setItems] = useState(options);
 
     const handleValueChange = (itemValue) => {
@@ -49,16 +49,14 @@ export default function Select({ errorMessage, placeholder, label, options,zInde
         <Select 
             label=""
             placeholder="select" 
-            errorMessage="test"
+            errorMessage={errors.selectData && touched.selectData ? errors.selectData : null}
             options={[
                 { label: 'Option 1', value: 'option1' },
                 { label: 'Option 2', value: 'option2' },
                 { label: 'Option 3', value: 'option3' },
             ]} 
-            onSelectItem={(item) => {
-                console.log(item);
-            }}
-            onChangeValue={(value) => console.log(value)}
+            passSetValue={selectData}
+            onChangeValue={(value) => setFieldValue('selectData', value)}
             zIndex={3000}
             zIndexInverse={1000}
         />
@@ -66,14 +64,16 @@ export default function Select({ errorMessage, placeholder, label, options,zInde
     <>
         <Select 
             label=""
+            label=""
             placeholder="select" 
-            errorMessage="test"
+            errorMessage={errors.selectData && touched.selectData ? errors.selectData : null}
             options={[
-                { label: 'Option 1', value: '2' },
-                { label: 'Option 2', value: '3' },
-                { label: 'Option 3', value: '4' },
+                { label: 'Option 1', value: 'option1' },
+                { label: 'Option 2', value: 'option2' },
+                { label: 'Option 3', value: 'option3' },
             ]} 
-            onChangeValue={(value) => console.log(value)}
+            passSetValue={selectData}
+            onChangeValue={(value) => setFieldValue('selectData', value)}
             zIndex={2000}
             zIndexInverse={2000}
         /> 
