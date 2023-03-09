@@ -28,6 +28,7 @@ export default function LoginScreen({navigation}) {
         try{
             handlingLoading();
             const result = await apiLogin(data);
+            console.log(result);
             await SecureStore.setItemAsync('token',result.data.token);
             handlingLoading();
             signIn(true);
@@ -46,10 +47,8 @@ export default function LoginScreen({navigation}) {
                 <Formik
                     validationSchema={Schema}
                     initialValues={{ 
-                        email: 'admin@csc.net.my' ,
-                        password:'Csc@1234' 
-                        // email: '' ,
-                        // password:'' 
+                        email: 'safwan@test.com' ,
+                        password:'password' 
                     }}
                     onSubmit={(values,actions)=>{
                         login(values,actions);
